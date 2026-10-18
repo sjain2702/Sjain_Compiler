@@ -1,0 +1,20 @@
+-- EXPECTED: 0 errors.  Valid integer and real literals, exponents, and the 1..10 range.
+program numbers is
+  i : integer;
+  r : real;
+begin
+  i := 0;
+  i := 42;
+  i := 007;
+  i := 2147483647;      -- largest integer
+  i := 1234E2;          -- integer with exponent = 123400
+  i := 7e+3;
+  r := 12.34;
+  r := 12.34E+2;
+  r := 12.34E-2;
+  r := 12.34E2;
+  r := 0.5e0;
+  for k in 1..10 loop null; end loop;       -- ".." is a range, not a real number
+  for k in 1 .. 10 loop null; end loop;
+  for k in 1..i loop null; end loop;
+end numbers;

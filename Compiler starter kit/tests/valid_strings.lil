@@ -1,0 +1,13 @@
+-- EXPECTED: 0 errors.  Valid string literals, including doubled quotes.
+program strings is
+  s : string;
+begin
+  s := "This is a string";
+  s := "This is a ""string""";
+  s := "I said ""Help""";
+  s := """";                      -- a string holding one double quote
+  s := "a -- is not a comment inside a string";
+  s := "  leading and trailing blanks  ";
+  s := "x" & "y";
+  writeln("Hello, world");
+end strings;

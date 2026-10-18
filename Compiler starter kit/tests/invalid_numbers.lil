@@ -1,0 +1,13 @@
+-- EXPECTED: 10 errors (one per bad number, lines 3 to 12), all reported at the start of the number.
+program badnum is begin
+  a := 3.;               -- 63 digits needed after the period
+  b := 5E;               -- 64 digits needed after E
+  c := 5E+;              -- 64
+  d := 1.5E;             -- 64
+  e := 5E-2;             -- 67 integer cannot have a negative exponent
+  f := 1E1234;           -- 65 too many exponent digits
+  g := 99999999999;      -- 68 integer too large
+  h := 2147483648;       -- 68 one more than the largest integer
+  i := 1.0E999;          -- 66 real too large
+  j := 12.x;             -- 63
+end badnum;

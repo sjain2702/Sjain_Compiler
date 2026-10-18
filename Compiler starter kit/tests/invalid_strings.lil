@@ -1,0 +1,8 @@
+-- EXPECTED: 3 errors (lines 3, 5 and 6): string not terminated before the end of the line.
+program badstr is begin
+  a := "unterminated string
+  b := 5;                -- scanning recovers: this line is scanned normally
+  c := "ends with a doubled quote""
+  d := "starts fine, then a "" inside but never closes
+  e := "this one is fine";
+end badstr;
