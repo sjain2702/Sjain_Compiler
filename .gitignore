@@ -1,0 +1,7 @@
+# compiled files
+*.o
+Compiler starter kit/compiler
+PAL/pal
+
+# macOS / editor noise
+.DS_Store
