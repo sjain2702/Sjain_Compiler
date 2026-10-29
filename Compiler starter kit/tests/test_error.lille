@@ -1,0 +1,8 @@
+program test is
+  x : real;
+  s : string;
+begin
+  x := 1.5;
+  x := 3.;
+  s := "hello
+end test;

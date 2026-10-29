@@ -1,0 +1,30 @@
+program parser_valid is
+  limit : constant integer := 5;
+  total : integer;
+  procedure add_value(x : value integer; y : ref integer) is
+  begin
+    y := y + x;
+  end add_value;
+  function identity(x : value integer) return integer is
+  begin
+    return x;
+  end identity;
+begin
+  total := identity(limit);
+  if total >= 1 then
+    writeln("positive");
+  elsif total = 0 then
+    writeln "zero";
+  else
+    null;
+  end if;
+  for i in reverse 1 .. 3 loop
+    add_value(i, total);
+    exit when total > 20;
+  end loop;
+  while total < 100 loop
+    total := total + 1;
+  end loop;
+  read(total);
+  return;
+end parser_valid;

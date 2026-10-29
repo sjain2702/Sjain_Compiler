@@ -1,0 +1,5 @@
+program parser_invalid is
+  x : integer;
+begin
+  x := 1 + ;
+end parser_invalid;
