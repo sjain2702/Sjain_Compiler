@@ -14,6 +14,13 @@
  *
  * Open Source - free to distribute and modify. May not be used for profit.
  *
+ * Semantic Analysis phase modifications
+ *   Student : Shlok Jain
+ *   Course  : CSC-4510
+ *   The parser (with integrated static semantic checks) drives the id_table;
+ *   the table prints itself every time a scope is exited, so no extra code is
+ *   needed here beyond constructing the table and running the parser.
+ *
  * Written using C++20.
  *         g++ -std=c++20 -o lille compiler.ccp
  *
@@ -44,7 +51,7 @@
 #include "symbol.h"
 #include "error_handler.h"
 //#include "code_gen.h"
-//#include "id_table.h"
+#include "id_table.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -125,7 +132,7 @@ bool process_command_line(int argc, char *argv[]) {
 				// Generate a named output file holding the PAL code.
 				if (i + 1 < argc)			// A file name is expected after the -o flag
 				{
-					code_filename = argv[i++];	// Increment i so we do not get the argument on the next loop iteration.
+					code_filename = argv[++i];	// Skip ahead so the file name is not re-read as the source file (fixed: was argv[i++]).
 					cflag = true;
 				}
 				else	// No file name provided
@@ -200,8 +207,9 @@ bool process_command_line(int argc, char *argv[]) {
 			else
 				err = new error_handler(source_filename, listing_filename);
 
+			id_tab = new id_table(err);
 			scan = new scanner(source_filename, id_tab, err);
-			parser parse(scan, err);
+			parser parse(scan, err, id_tab);
 			parse.parse_program();
 
 
