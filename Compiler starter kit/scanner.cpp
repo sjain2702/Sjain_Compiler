@@ -4,6 +4,11 @@
  * Written:            1 June 2020
  * Last modified:      1 June 2023
  *      Author: Michael Oudshoorn
+ *
+ * Student : Shlok Jain
+ * Course  : CSC-4510
+ * Scanner phase work (literal/number diagnostics etc.); unchanged by the Semantic
+ * Analysis phase, which is integrated through the parser and id_table.
  */
 
 
@@ -437,6 +442,8 @@ void scanner::scan_string()
 
 	if (!terminated)
 		error->flag(current_line_number, current_pos_on_line, 60);	// String not terminated before end of line.
+	else if (current_string_value.empty())
+		error->flag(current_line_number, current_pos_on_line, 125);	// Empty string literals are not in Lille.
 
 	// A string token is returned even when unterminated (holding what was read so far) so that
 	// one lexical mistake does not trigger a cascade of unrelated errors later on.
@@ -551,7 +558,7 @@ void scanner::scan_digit()
 	// scan in a token beginning with a digit
 	// Note that a unary operator such as -1 would be detected as a minus sign followed by a digit.
 
-	// Lille number syntax:   digit_seq [ . digit_seq ] [ (E|e) [+|-] digit_seq ]
+	// Lille number syntax:   digit_seq [ . digit_seq ] [ (E|e) (+|-) digit_seq ]
 	//   - a number containing a period is REAL, otherwise it is INTEGER.
 	//   - an INTEGER may only have a non-negative exponent (e.g. 1234E2 is the integer 123400).
 	//
@@ -607,7 +614,8 @@ void scanner::scan_digit()
 	{
 		has_exp = true;
 		get_char();					// consume the E.
-		if ((next_char == '+') or (next_char == '-'))
+		bool has_exp_sign = (next_char == '+') or (next_char == '-');
+		if (has_exp_sign)
 		{
 			exp_sign = next_char;
 			get_char();
@@ -620,16 +628,30 @@ void scanner::scan_digit()
 
 		if (exp_digits.empty())
 			report(64);				// E must be followed by digits.
+		else if (!has_exp_sign)
+			report(64);				// Lille requires an explicit exponent sign.
 		else
 		{
 			// Leading zeros do not count towards the length of the exponent (E+007 is fine).
 			size_t first_sig = exp_digits.find_first_not_of('0');
-			if ((first_sig != string::npos) and ((exp_digits.length() - first_sig) > 3))
+			bool zero_mantissa = int_digits.find_first_not_of('0') == string::npos &&
+				(!is_real || frac_digits.find_first_not_of('0') == string::npos);
+			if ((!zero_mantissa) and (first_sig != string::npos) and ((exp_digits.length() - first_sig) > 3))
 				report(65);			// too many digits in the exponent.
 		}
 
 		if ((!is_real) and (exp_sign == '-'))
 			report(67);				// an integer may only have a non-negative exponent.
+	}
+
+	// A second decimal point after a number is part of one malformed numeric
+	// literal. Consume its numeric tail so it cannot become a misleading range
+	// token (for example, 12.34.56 or 1e+02.3).
+	if ((next_char == '.') and is_dig(following_char()))
+	{
+		report(66);
+		get_char();
+		while (is_dig(next_char)) get_char();
 	}
 
 	// ---- Convert the characters to a value ----------------------------------------------------
@@ -668,7 +690,7 @@ void scanner::scan_digit()
 			// Apply a (non-negative) exponent: multiply by 10 that many times.
 			if (has_exp and (!overflow) and (value != 0))
 			{
-				int times = stoi(exp_digits);	// at most 3 significant digits, so this cannot overflow.
+				int times = stoi(exp_digits.substr(exp_digits.find_first_not_of('0')));	// <= 3 significant digits.
 				for (int i = 0; (i < times) and (!overflow); i++)
 				{
 					value *= 10;
