@@ -1,0 +1,6 @@
+-- EXPECT: 91
+program t is x : integer;
+  procedure p is begin null; end p;
+begin
+  x := p;
+end t;

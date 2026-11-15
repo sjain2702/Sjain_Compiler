@@ -1,0 +1,138 @@
+
+=====================================================================
+ SYMBOL TABLE  --  EXITING SCOPE LEVEL 3
+=====================================================================
+Scope level 0
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  INT2STRING    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE INTEGER); returns STRING
+  NESTED        PROG      UNKNOWN      0      2     8     
+  REAL2STRING   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE REAL); returns STRING
+  STRING2INT    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns INTEGER
+  STRING2REAL   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns REAL
+
+Scope level 1
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  LIMIT         INTEGER   CONSTANT     1      4     2     value=3
+  OUTER         PROC      UNKNOWN      1      5     12    params=2 (VALUE INTEGER, REF INTEGER)
+  X             INTEGER   VARIABLE     1      3     2     
+
+Scope level 2
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  A             INTEGER   VALUE_PARAM  2      5     18    
+  B             INTEGER   REF_PARAM    2      5     37    
+  INNER         PROC      UNKNOWN      2      7     14    params=0
+  X             REAL      VARIABLE     2      6     4     
+
+Scope level 3   <-- scope being exited
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  K             INTEGER   VARIABLE     3      8     6     
+
+
+=====================================================================
+ SYMBOL TABLE  --  EXITING SCOPE LEVEL 3
+=====================================================================
+Scope level 0
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  INT2STRING    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE INTEGER); returns STRING
+  NESTED        PROG      UNKNOWN      0      2     8     
+  REAL2STRING   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE REAL); returns STRING
+  STRING2INT    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns INTEGER
+  STRING2REAL   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns REAL
+
+Scope level 1
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  LIMIT         INTEGER   CONSTANT     1      4     2     value=3
+  OUTER         PROC      UNKNOWN      1      5     12    params=2 (VALUE INTEGER, REF INTEGER)
+  X             INTEGER   VARIABLE     1      3     2     
+
+Scope level 2
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  A             INTEGER   VALUE_PARAM  2      5     18    
+  B             INTEGER   REF_PARAM    2      5     37    
+  INNER         PROC      UNKNOWN      2      7     14    params=0
+  X             REAL      VARIABLE     2      6     4     
+
+Scope level 3   <-- scope being exited
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  I             INTEGER   FOR_IDENT    3      17    8     
+
+
+=====================================================================
+ SYMBOL TABLE  --  EXITING SCOPE LEVEL 2
+=====================================================================
+Scope level 0
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  INT2STRING    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE INTEGER); returns STRING
+  NESTED        PROG      UNKNOWN      0      2     8     
+  REAL2STRING   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE REAL); returns STRING
+  STRING2INT    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns INTEGER
+  STRING2REAL   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns REAL
+
+Scope level 1
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  LIMIT         INTEGER   CONSTANT     1      4     2     value=3
+  OUTER         PROC      UNKNOWN      1      5     12    params=2 (VALUE INTEGER, REF INTEGER)
+  X             INTEGER   VARIABLE     1      3     2     
+
+Scope level 2   <-- scope being exited
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  A             INTEGER   VALUE_PARAM  2      5     18    
+  B             INTEGER   REF_PARAM    2      5     37    
+  INNER         PROC      UNKNOWN      2      7     14    params=0
+  X             REAL      VARIABLE     2      6     4     
+
+
+=====================================================================
+ SYMBOL TABLE  --  EXITING SCOPE LEVEL 2
+=====================================================================
+Scope level 0
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  INT2STRING    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE INTEGER); returns STRING
+  NESTED        PROG      UNKNOWN      0      2     8     
+  REAL2STRING   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE REAL); returns STRING
+  STRING2INT    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns INTEGER
+  STRING2REAL   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns REAL
+
+Scope level 1
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  LIMIT         INTEGER   CONSTANT     1      4     2     value=3
+  OUTER         PROC      UNKNOWN      1      5     12    params=2 (VALUE INTEGER, REF INTEGER)
+  SQUARE        FUNC      UNKNOWN      1      21    11    params=1 (VALUE INTEGER); returns INTEGER
+  X             INTEGER   VARIABLE     1      3     2     
+
+Scope level 2   <-- scope being exited
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  N             INTEGER   VALUE_PARAM  2      21    18    
+
+
+=====================================================================
+ SYMBOL TABLE  --  EXITING SCOPE LEVEL 1
+=====================================================================
+Scope level 0
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  INT2STRING    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE INTEGER); returns STRING
+  NESTED        PROG      UNKNOWN      0      2     8     
+  REAL2STRING   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE REAL); returns STRING
+  STRING2INT    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns INTEGER
+  STRING2REAL   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns REAL
+
+Scope level 1   <-- scope being exited
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  LIMIT         INTEGER   CONSTANT     1      4     2     value=3
+  OUTER         PROC      UNKNOWN      1      5     12    params=2 (VALUE INTEGER, REF INTEGER)
+  SQUARE        FUNC      UNKNOWN      1      21    11    params=1 (VALUE INTEGER); returns INTEGER
+  X             INTEGER   VARIABLE     1      3     2     
+
+
+=====================================================================
+ SYMBOL TABLE  --  EXITING SCOPE LEVEL 0
+=====================================================================
+Scope level 0   <-- scope being exited
+  NAME          TYPE      KIND         SCOPE  LINE  POS   DETAILS
+  INT2STRING    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE INTEGER); returns STRING
+  NESTED        PROG      UNKNOWN      0      2     8     
+  REAL2STRING   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE REAL); returns STRING
+  STRING2INT    FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns INTEGER
+  STRING2REAL   FUNC      UNKNOWN      0      -     -     predefined; params=1 (VALUE STRING); returns REAL
+
+Execution completed in 2 milliseconds with 0 errors found.

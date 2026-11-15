@@ -1,0 +1,6 @@
+-- EXPECT: 116
+program t is s : string; i : integer;
+begin
+  s := "a";
+  i := s + 1;
+end t;

@@ -1,0 +1,5 @@
+-- EXPECT: 93
+program t is x : integer;
+begin
+  x := "text";
+end t;

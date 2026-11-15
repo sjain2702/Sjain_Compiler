@@ -1,0 +1,5 @@
+-- EXPECT: 111
+program t is c : constant integer := "s";
+begin
+  null;
+end t;

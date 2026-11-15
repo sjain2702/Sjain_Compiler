@@ -1,0 +1,21 @@
+-- f(g(h(x))) must keep each call's arguments separate; a function may call itself; a function may have no parameters.
+program calls is
+  r : integer;
+  function twice(n : value integer) return integer is begin return n + n; end twice;
+  function fact(n : value integer) return integer is
+  begin
+    if n <= 1 then return 1; end if;
+    return n * fact(n - 1);
+  end fact;
+  function seven return integer is begin return 7; end seven;
+  procedure swap_in(a : ref integer; b : ref integer) is
+    t : integer;
+  begin
+    t := a; a := b; b := t;
+  end swap_in;
+begin
+  r := twice(twice(twice(1)));
+  r := fact(5) + seven;
+  swap_in(r, r);
+  writeln(int2string(twice(fact(3))));
+end calls;

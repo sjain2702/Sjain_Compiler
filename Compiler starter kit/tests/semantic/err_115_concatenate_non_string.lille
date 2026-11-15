@@ -1,0 +1,5 @@
+-- EXPECT: 115
+program t is s : string;
+begin
+  s := "a" & 5;
+end t;

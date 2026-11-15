@@ -1,0 +1,29 @@
+-- Nested scopes: procedure and function bodies, a FOR loop scope, and an inner x that shadows the global x.
+program nested is
+  x : integer;
+  limit : constant integer := 3;
+  procedure outer(a : value integer; b : ref integer) is
+    x : real;                       -- hides the global integer x
+    procedure inner is
+      k : integer;
+    begin
+      k := 1;
+      b := b + k;
+    end inner;
+  begin
+    x := 2.5;                       -- integer/real mixing is allowed: real := integer expression
+    x := a;
+    inner;
+    for i in 1 .. limit loop
+      b := b + i;
+    end loop;
+  end outer;
+  function square(n : value integer) return integer is
+  begin
+    return n * n;
+  end square;
+begin
+  x := square(limit);
+  outer(x, x);
+  writeln "x = " & int2string(x);
+end nested;

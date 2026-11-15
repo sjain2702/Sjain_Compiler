@@ -1,0 +1,6 @@
+-- EXPECT: 103
+program t is x : integer;
+begin
+  x := 1;
+  if x then null; end if;
+end t;

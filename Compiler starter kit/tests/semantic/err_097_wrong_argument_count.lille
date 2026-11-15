@@ -1,0 +1,6 @@
+-- EXPECT: 97
+program t is
+  procedure p(a : value integer) is begin null; end p;
+begin
+  p(1, 2);
+end t;

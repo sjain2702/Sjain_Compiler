@@ -1,0 +1,6 @@
+-- EXPECT: 123
+program t is
+  function f(a : ref integer) return integer is begin return 1; end f;
+begin
+  null;
+end t;

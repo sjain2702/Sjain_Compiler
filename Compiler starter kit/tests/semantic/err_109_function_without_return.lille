@@ -1,0 +1,6 @@
+-- EXPECT: 109
+program t is
+  function f return integer is begin null; end f;
+begin
+  null;
+end t;

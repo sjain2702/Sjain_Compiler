@@ -1,0 +1,5 @@
+-- EXPECT: 102
+program t is b : boolean;
+begin
+  b := odd(2.5);
+end t;

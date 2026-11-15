@@ -1,0 +1,4 @@
+-- EXPECT: 81
+program t is begin
+  read(zz);
+end t;

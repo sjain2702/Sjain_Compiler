@@ -1,0 +1,4 @@
+-- EXPECT: 89
+program t is begin
+  exit;
+end t;

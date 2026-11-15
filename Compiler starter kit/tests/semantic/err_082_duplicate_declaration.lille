@@ -1,0 +1,6 @@
+-- EXPECT: 82
+program t is x : integer;
+  x : real;
+begin
+  null;
+end t;

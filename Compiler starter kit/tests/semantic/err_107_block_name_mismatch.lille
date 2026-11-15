@@ -1,0 +1,6 @@
+-- EXPECT: 107
+program t is
+  procedure p is begin null; end q;
+begin
+  null;
+end t;

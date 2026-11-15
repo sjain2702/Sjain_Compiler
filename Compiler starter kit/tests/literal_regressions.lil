@@ -1,0 +1,10 @@
+-- EXPECTED: 4 lexical errors: 12E3, 12.34.56, 1e+02.3, and the empty string.
+-- 0E+0001234 is valid and must not overflow while parsing its exponent.
+program literal_regressions is
+begin
+  writeln(0E+0001234);
+  writeln(12E3);
+  writeln(12.34.56);
+  writeln(1e+02.3);
+  writeln("");
+end literal_regressions;

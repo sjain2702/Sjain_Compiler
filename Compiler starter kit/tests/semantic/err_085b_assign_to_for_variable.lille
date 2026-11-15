@@ -1,0 +1,6 @@
+-- EXPECT: 85
+program t is begin
+  for i in 1..3 loop
+    i := 5;
+  end loop;
+end t;

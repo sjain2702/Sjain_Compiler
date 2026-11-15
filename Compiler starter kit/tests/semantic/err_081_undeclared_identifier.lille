@@ -1,0 +1,5 @@
+-- EXPECT: 81
+program t is x : integer;
+begin
+  y := 1;
+end t;

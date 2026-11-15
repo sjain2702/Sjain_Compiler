@@ -1,0 +1,6 @@
+-- EXPECT: 87
+program t is
+  function f return integer is begin return "s"; end f;
+begin
+  null;
+end t;

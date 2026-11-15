@@ -1,0 +1,4 @@
+-- EXPECT: 104
+program t is begin
+  for i in 1.5..3 loop null; end loop;
+end t;
